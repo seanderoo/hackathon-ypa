@@ -10,26 +10,26 @@ import java.time.format.DateTimeFormatter;
 @Controller
 public class HelloController {
 
-    private final static String UNKNOWN_USER = "unknown";
-    private final static String UNKNOWN_AGE = "unknown";
+    private final static String UNKNOWN_ARTIST = "unknown artist";
+    private final static String UNKNOWN_SONG = "unknown song";
 
     @GetMapping("")
-    public String helloAge(@RequestParam(value = "naam", required = false) String name,
-                           @RequestParam(value = "leeftijd", required = false) String age,
+    public String helloAge(@RequestParam(value = "artist", required = false) String artistName,
+                           @RequestParam(value = "titel", required = false) String songTitel,
                            Model model) {
 
-        if (name == null) {
-            name = UNKNOWN_USER;
+        if (artistName == null) {
+            artistName = UNKNOWN_ARTIST;
         }
 
-        if (age == null) {
-            age = UNKNOWN_AGE;
+        if (songTitel == null) {
+            songTitel = UNKNOWN_SONG;
         }
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         model.addAttribute("time", LocalDateTime.now().format(formatter));
-        model.addAttribute("name", name);
-        model.addAttribute("age", age);
+        model.addAttribute("artist", artistName);
+        model.addAttribute("titel", songTitel);
 
         return "index"; // index.html
     }

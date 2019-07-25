@@ -1,57 +1,41 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class Example {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String name;
-    private int age;
+    private String artistName;
+    private String songTitel;
 
-    public Example(int id, String name, int age) {
+    public Example(int id, String artistName, String songTitel) {
         this.id = id;
-        this.name = name;
-        this.age = age;
+        this.artistName = artistName;
+        this.songTitel = songTitel;
     }
 
     public Example() {}
 
-    public int getId() {
-        return id;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
-    public String getName() {
-        return name;
+    public String getSongTitel() {
+        return songTitel;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+    public void setSongTitel(String songTitel) {
+        this.songTitel = songTitel;
     }
 
     @Override
     public String toString() {
         return "Example{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
+                ", artist='" + artistName + '\'' +
+                ", song=" + songTitel +
                 '}';
     }
 }
